@@ -5,7 +5,7 @@ project(PotreeConverter LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
+set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "" FORCE)
 
 #message(${PROJECT_SOURCE_DIR})
 
@@ -51,6 +51,7 @@ target_link_libraries(PotreeConverter brotlidec-static)
 target_include_directories(PotreeConverter PRIVATE "./Converter/include")
 target_include_directories(PotreeConverter PRIVATE "./Converter/modules")
 target_include_directories(PotreeConverter PRIVATE "./Converter/libs")
+#target_include_directories(PotreeConverter PRIVATE "/home/peter/dev/brotli/out/installed/lib/")
 
 
 if (UNIX)
@@ -61,7 +62,7 @@ if (UNIX)
 	target_link_libraries(${PROJECT_NAME} tbb)
 
 
-	#SET(CMAKE_CXX_FLAGS "-pthread -ltbb")
+	#SET(CMAKE_CXX_FLAGS "-pthread -ltbb -O0 -g3")
 endif (UNIX)
 
 ###############################################
